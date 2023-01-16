@@ -8,15 +8,21 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="FluentAssertions" Version="6.9.0" />
         <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
+        <PackageReference Include="Hashids.net" Version="1.6.1" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="UrlShortener" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Protobuf Include="Presentation\Greet\greet.proto">
+      <Protobuf Include="gRpc\Greet\greet.proto">
+        <GrpcServices>Server</GrpcServices>
+        <Access>Public</Access>
+        <ProtoCompile>True</ProtoCompile>
+        <CompileOutputs>True</CompileOutputs>
+        <OutputDir>obj\Debug/net6.0/</OutputDir>
+        <Generator>MSBuild:Compile</Generator>
+      </Protobuf>
+      <Protobuf Include="gRpc\Url\url.proto">
         <GrpcServices>Server</GrpcServices>
         <Access>Public</Access>
         <ProtoCompile>True</ProtoCompile>

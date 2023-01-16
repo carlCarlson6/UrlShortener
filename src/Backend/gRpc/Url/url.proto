@@ -1,0 +1,16 @@
+syntax = "proto3";
+option csharp_namespace = "Backend.gRpc";
+package url;
+
+service UrlCreator {
+  rpc Short (ShortUrlRequest) returns (ShortUrlResponse);
+}
+
+message ShortUrlRequest {
+  string url = 1;
+  string slug = 2;
+}
+
+message ShortUrlResponse {
+  string slug = 1;
+}
